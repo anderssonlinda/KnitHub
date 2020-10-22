@@ -7,6 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <nav>
+    <a href="/patterns/all">All Patterns</a>
+    <a href="/patterns/cables">Cables</a>
+    <a href="/patterns/laces">Laces</a>
+    <a href="/patterns/textures">Textures</a>
+  </nav>
+
+  <h1>Knitting app</h1>
+  
+  <% if logged_in? %>
+  <a href="/user/saved_patterns">Saved Patterns</a>
+  <form action="/logout" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Log Out</button>
+    </form>
+
+  <% else %>
+    <a href="/user/signin">Sign in</a>
+    <a href="/user/signup">Sign up</a>
+  <% end %>
 
   <%= yield %>
 

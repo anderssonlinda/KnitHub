@@ -1,0 +1,13 @@
+<section>
+    <img id="display-image" src="<%= pattern['display_image_url']%>" alt="" data-id="<%= pattern['id']%>">
+    <img src="<%= pattern['chart_url']%>" alt="">
+
+    <% if get_saved_patterns(current_user['id']) == nil ||get_saved_patterns(current_user['id']).split(',').include?(pattern['id']) == false %>
+    <form action="/pattern/save/<%= pattern['id']%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <button id="save">Save</button>
+    </form>
+    <% else %>
+        <p>Saved!</p>
+    <% end %>
+</section>

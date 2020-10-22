@@ -1,0 +1,9 @@
+<% all_patterns.each do |index|%>
+
+ <%patterns.split(',') %>
+    <% if patterns.include?(index['id']) %>
+
+        <a href="/patterns/details/<%= index["id"]%>"><img src="<%= index['display_image_url']%>" alt=""></a>
+
+    <% end  %>
+<% end  %>
