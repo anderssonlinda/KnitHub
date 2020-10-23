@@ -1,9 +1,15 @@
-<% all_patterns.each do |index|%>
+<% if patterns == ""%>
+<p>No saved patterns</p>
 
- <%patterns.split(',') %>
-    <% if patterns.include?(index['id']) %>
-
-        <a href="/patterns/details/<%= index["id"]%>"><img src="<%= index['display_image_url']%>" alt=""></a>
-
+<% elsif patterns %>
+<section class="gallery">
+    <div class="gallery-images">
+    <% all_patterns.each do |index|%>
+        <%patterns.split(',') %>
+        <% if patterns.include?(index['id']) %>
+            <a href="/patterns/details/<%= index["id"]%>"><img src="<%= index['display_image_url']%>" alt=""></a>
+        <% end  %>
     <% end  %>
-<% end  %>
+    </div>
+</section>
+<% end %>

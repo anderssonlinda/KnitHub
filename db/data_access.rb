@@ -39,6 +39,6 @@ def get_saved_patterns user_id
     results[0]["saved_patterns"]
 end
 
-def save_pattern pattern_id, user_id
-    results = run_sql("UPDATE users SET saved_patterns = $1 WHERE id = $2;", [pattern_id, user_id])
+def save_pattern patterns, user_id
+    results = run_sql("UPDATE users SET saved_patterns = $1 WHERE id = $2;", [patterns, user_id])
 end

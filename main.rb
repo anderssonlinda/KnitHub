@@ -52,6 +52,19 @@ patch '/pattern/save/:pattern_id' do
   redirect "/patterns/details/#{params[:pattern_id]}"
 end 
 
+patch '/pattern/unsave/:pattern_id' do 
+  redirect '/login' unless logged_in?
+
+  patterns = get_saved_patterns(current_user['id'])
+  patterns = patterns.split(',')
+  patterns.delete("#{params[:pattern_id]}")  
+  patterns = patterns.join(',')
+
+  save_pattern(patterns, current_user['id'])
+  redirect "/patterns/details/#{params[:pattern_id]}"
+
+end
+
 get '/user/saved_patterns' do
   redirect '/login' unless logged_in?
 
@@ -91,4 +104,3 @@ delete '/logout' do
   session[:user_id] = nil 
   redirect '/'
 end
-# heroku apps:rename 

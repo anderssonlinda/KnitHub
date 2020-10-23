@@ -2,33 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World</title>
+  <title>KnitHub</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav>
-    <a href="/patterns/all">All Patterns</a>
-    <a href="/patterns/cables">Cables</a>
-    <a href="/patterns/laces">Laces</a>
-    <a href="/patterns/textures">Textures</a>
-  </nav>
+  <header>
+    <nav class="categories-nav">
+      <a tabindex="1" href="/patterns/all">All Patterns</a>
+      <a href="/patterns/cables">Cables</a>
+      <a href="/patterns/laces">Laces</a>
+      <a href="/patterns/textures">Textures</a>
+    </nav>
 
-  <h1>Knitting app</h1>
-  
-  <% if logged_in? %>
-  <a href="/user/saved_patterns">Saved Patterns</a>
-  <form action="/logout" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <button>Log Out</button>
-    </form>
+    <h1>KnitHub</h1>
+    
+    <% if logged_in? %>
+    <nav class="signed-in-nav">
+      <a href="/user/saved_patterns">Saved Patterns</a>
+      <form action="/logout" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button>Log Out</button>
+      </form>
+    </nav>
 
-  <% else %>
-    <a href="/user/signin">Sign in</a>
-    <a href="/user/signup">Sign up</a>
-  <% end %>
-
+    <% else %>
+    <nav class="signin-signup-nav">
+    <div>
+      <a href="/user/signin">Sign in</a>
+      <a href="/user/signup">Sign up</a>
+      </div>
+    </nav>
+    <% end %>
+  </header>
+  <main>
   <%= yield %>
-
+  </main>
 </body>
 </html>

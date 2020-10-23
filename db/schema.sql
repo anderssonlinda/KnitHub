@@ -13,7 +13,7 @@ CREATE TABLE users (
     password_digest TEXT
 );
 
-INSERT INTO patterns (display_image_url, chart_url, category) VALUES('https://www.dummies.com/wp-content/uploads/108232.image0.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY8z8c0yOAEJ8KN_ro_yl31RWxqt7Z6smYGA&usqp=CAU', 'textures');
+INSERT INTO patterns (display_image_url, chart_url, category) VALUES('https://www.knittingkingdom.com/wp-content/uploads/2020/05/Braid-Cable-Knitting-Stitch.jpg', 'https://www.knittingkingdom.com/wp-content/uploads/2020/05/ijvfio-482x1024.jpg', 'cables');
 
 alter table users add column saved_patterns TEXT;
 

@@ -1,5 +1,7 @@
 <section class="gallery">
-    <% patterns.each do |pattern|%>
-        <a href="/patterns/details/<%= pattern["id"]%>"><img src="<%= pattern["display_image_url"]%>" alt=""></a>
-    <% end %>
+    <div class="gallery-images">
+        <% patterns.each do |pattern|%>
+            <a href="/patterns/details/<%= pattern["id"]%>"><img src="<%= pattern["display_image_url"]%>" alt=""></a>
+        <% end %>
+    </div>
 </section>

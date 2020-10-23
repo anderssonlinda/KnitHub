@@ -1,4 +1,4 @@
-<section>
+<section class="pattern-details">
     <img id="display-image" src="<%= pattern['display_image_url']%>" alt="" data-id="<%= pattern['id']%>">
     <img src="<%= pattern['chart_url']%>" alt="">
     <% if logged_in? %>
@@ -10,7 +10,10 @@
         </form>
 
         <% else %>
-            <p>Saved!</p>
+            <form action="/pattern/unsave/<%= pattern['id']%>" method="post">
+                <input type="hidden" name="_method" value="patch">
+                <button id="save">Unsave</button>
+            </form>
         <% end %>
     <% end %>
 </section>
