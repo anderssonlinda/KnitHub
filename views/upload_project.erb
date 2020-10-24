@@ -1,0 +1,10 @@
+<section class="upload-project" >
+    <img class="img-preview" src="" alt="">
+    <form class="project-form" action="/patterns/<%= pattern['id'] %>/upload-project" method="post">
+    
+        <input class="img-input" type="text" name="image_url" placeholder="Image URL" onchange="preview()">
+        <%# <input type="text" name="image_url" required> %>
+        <button>Upload</button>
+    </form>
+    <a href="javascript:history.back()">Go Back</a>
+</section>

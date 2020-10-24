@@ -11,7 +11,7 @@
 <body>
   <header>
     <nav class="categories-nav">
-      <a tabindex="1" href="/patterns/all">All Patterns</a>
+      <a href="/patterns/all">All Patterns</a>
       <a href="/patterns/cables">Cables</a>
       <a href="/patterns/laces">Laces</a>
       <a href="/patterns/textures">Textures</a>
@@ -22,9 +22,10 @@
     <% if logged_in? %>
     <nav class="signed-in-nav">
       <a href="/user/saved_patterns">Saved Patterns</a>
+      <a href="/user/projects">My projects</a>
       <form action="/logout" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button>Log Out</button>
+          <button>Log out</button>
       </form>
     </nav>
 
@@ -40,5 +41,9 @@
   <main>
   <%= yield %>
   </main>
+
+<script src="../public/javascripts/application.js">
+
+</script>
 </body>
 </html>

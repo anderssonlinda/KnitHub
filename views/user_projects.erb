@@ -1,0 +1,13 @@
+<section class="project-gallery">
+        <% projects.each do |project|%>
+        <div class="project-image">
+            <img src="<%= project["image_url"]%>" alt="">
+            <a href="/user/projects/<%= project["id"]%>/edit">Edit</a>
+            <form action="/user/projects/<%= project["id"]%>" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button>Delete</button>
+            </form>
+        </div>
+        <% end %>
+        <a href="javascript:history.back()">Go Back</a>
+</section>

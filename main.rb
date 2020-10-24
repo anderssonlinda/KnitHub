@@ -64,6 +64,23 @@ patch '/pattern/unsave/:pattern_id' do
   redirect "/patterns/details/#{params[:pattern_id]}"
 
 end
+get '/patterns/projects/:pattern_id' do
+  pattern = find_pattern_by_id(params[:pattern_id])
+  projects = find_project_by_pattern_id(params[:pattern_id])
+  erb :projects, locals: {pattern: pattern, projects: projects}
+end
+
+get '/patterns/:pattern_id/upload-project' do
+  pattern = find_pattern_by_id(params[:pattern_id])
+  erb :upload_project, locals: {pattern: pattern}
+end
+
+post '/patterns/:pattern_id/upload-project' do
+  
+  upload_project(params[:pattern_id], current_user['id'], params['image_url'], params['ravelry_url'])
+  redirect "/patterns/projects/#{params[:pattern_id]}"
+end
+
 
 get '/user/saved_patterns' do
   redirect '/login' unless logged_in?
@@ -71,6 +88,28 @@ get '/user/saved_patterns' do
   patterns = get_saved_patterns(current_user['id'])
   
   erb :saved_patterns, locals: {patterns: patterns, all_patterns: all_patterns}
+end
+
+get '/user/projects' do
+  projects = find_projects_by_user_id(current_user['id'])
+  erb :user_projects, locals: {projects: projects}
+end
+
+get '/user/projects/:project_id/edit' do
+  project = find_project_by_id(params[:project_id])
+  erb :edit_project, locals: {project: project}
+end
+
+patch '/user/project/:project_id' do
+  project = find_project_by_id(params[:project_id])
+  update_project(params["image_url"], params[:project_id])
+  redirect '/user/projects'
+end
+
+delete '/user/projects/:project_id' do
+  delete_project(params[:project_id])
+  # redirect '/user/projects'
+  redirect :back
 end
 
 get '/user/:action' do 

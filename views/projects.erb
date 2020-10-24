@@ -1,0 +1,9 @@
+<h2>hello</h2>
+<section class="gallery">
+    <div class="project-image">
+        <% projects.each do |project|%>
+            <img src="<%= project["image_url"]%>" alt="">
+        <% end %>
+    </div>
+</section>
+<a href="/patterns/<%= pattern["id"] %>/upload-project">Upload Project</a>

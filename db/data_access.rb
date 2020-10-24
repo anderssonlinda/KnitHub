@@ -40,5 +40,31 @@ def get_saved_patterns user_id
 end
 
 def save_pattern patterns, user_id
-    results = run_sql("UPDATE users SET saved_patterns = $1 WHERE id = $2;", [patterns, user_id])
+    run_sql("UPDATE users SET saved_patterns = $1 WHERE id = $2;", [patterns, user_id])
+end
+
+
+def find_project_by_pattern_id pattern_id
+    results = run_sql("SELECT * FROM projects WHERE pattern_id = $1", [pattern_id])
+end
+
+def find_projects_by_user_id user_id
+    results = run_sql("SELECT * FROM projects WHERE user_id = $1;", [user_id])
+end 
+
+def find_project_by_id id 
+    results = run_sql("SELECT * FROM projects where id = $1;", [id])
+    results[0]
+end
+
+def upload_project pattern_id, user_id, image_url, ravelry_url
+    run_sql("INSERT INTO projects (pattern_id, user_id, image_url, ravelry_url) VALUES($1, $2, $3, $4);", [pattern_id, user_id, image_url, ravelry_url])
+end
+
+def update_project image_url, project_id
+    run_sql("UPDATE projects SET image_url = $1 WHERE id = $2;", [image_url, project_id])
+end
+
+def delete_project project_id 
+    run_sql("DELETE FROM projects WHERE id = $1", [project_id])
 end
