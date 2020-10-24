@@ -1,4 +1,5 @@
-<h2>hello</h2>
+<a class="back-link"  href="javascript:history.back()"><< Back</a>
+<a class="upload-link" href="/patterns/<%= pattern["id"] %>/upload-project">Upload Project</a>
 <section class="gallery">
     <div class="project-image">
         <% projects.each do |project|%>
@@ -6,4 +7,3 @@
         <% end %>
     </div>
 </section>
-<a href="/patterns/<%= pattern["id"] %>/upload-project">Upload Project</a>

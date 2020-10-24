@@ -20,7 +20,7 @@ CREATE TABLE projects (
     ravelry_url TEXT
 );
 
-INSERT INTO patterns (display_image_url, chart_url, category) VALUES('https://www.knittingkingdom.com/wp-content/uploads/2020/05/Braid-Cable-Knitting-Stitch.jpg', 'https://www.knittingkingdom.com/wp-content/uploads/2020/05/ijvfio-482x1024.jpg', 'cables');
+INSERT INTO patterns (display_image_url, chart_url, category) VALUES('https://www.knittingkingdom.com/wp-content/uploads/2018/08/Free-Tulip-Lace-Knitting-Stitch.jpg', 'https://www.knittingkingdom.com/wp-content/uploads/2018/08/difdijf.jpg', 'laces');
 
 INSERT INTO projects (pattern_id, user_id, image_url, ravelry_url) VALUES($1, $2, $3, $4); 
 

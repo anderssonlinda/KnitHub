@@ -14,8 +14,9 @@ main {
 }
 header {
     display: grid;
-    grid-template-columns: auto 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
+        
     margin: 50px 0;
     align-items: end;
 }
@@ -25,24 +26,27 @@ h1 {
     font-family: 'Righteous', cursive;
     font-size: 50px;
     line-height: 48px;
+    /* padding: 0 60px; */
 }
 .categories-nav{
     display: grid;
     align-self: end;
-    grid-template-columns: auto auto auto auto;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-    
-
+    /* grid-template-columns: auto auto auto auto; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 80%;
 }
 .categories-nav a{
-    justify-self: center;
     font-size: 18px;
     text-decoration: none;
     font-weight: lighter;
-    /* margin: 0 10px; */
     color: #DCC9B6;
     font-family: 'Montserrat', sans-serif;
-    padding: 0 10px;
+}
+.cables {
+    justify-self: center;
+}
+.laces {
+    padding-left: 20px;
 }
 .categories-nav a:hover {
     /* text-decoration: underline; */
@@ -52,6 +56,13 @@ h1 {
 .signin-signup-nav {
     display: grid;
     justify-items: end;
+    
+}
+.signin-signup-nav div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: end;    
+    width: 40%;
 }
 .signed-in-nav form, .signed-in-nav a{
     display: inline-block;   
@@ -61,12 +72,12 @@ h1 {
     font-size: 18px;
     text-decoration: none;
     font-weight: lighter;
-    margin: 0 10px;
+    /* margin: 0 10px; */
     color: #DCC9B6;
     font-family: 'Montserrat', sans-serif;
 }
 .signin-signup-nav a:hover {
-    text-decoration: underline;
+    font-weight: 500;
 }
 
 .gallery {
@@ -152,12 +163,19 @@ h1 {
     text-decoration: underline;
 }
 .pattern-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-top: 50px;
+    gap: 30px;
+    justify-content: space-between;
 }
 .pattern-details img{
     height: 350px;
     border: 5px solid #dcc9b6;
-    margin: 0 20px;
+    /* justify-self: end; */
+}
+.pattern-details div{
+    justify-self: end;
 }
 .project-image {
     display: inline-block;  
@@ -172,4 +190,12 @@ h1 {
 }
 .img-preview {
     height: 200px;
+}
+.back-link, .projects-link, .upload-link {
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: lighter;
+    /* margin: 0 10px; */
+    color: #DCC9B6;
+    font-family: 'Montserrat', sans-serif;
 }

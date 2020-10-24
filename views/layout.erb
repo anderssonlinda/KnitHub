@@ -6,15 +6,15 @@
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <nav class="categories-nav">
-      <a href="/patterns/all">All Patterns</a>
-      <a href="/patterns/cables">Cables</a>
-      <a href="/patterns/laces">Laces</a>
-      <a href="/patterns/textures">Textures</a>
+      <a class="all-patterns" href="/patterns/all">All Patterns</a>
+      <a class="cables" href="/patterns/cables">Cables</a>
+      <a class="laces" href="/patterns/laces">Laces</a>
+      <a class="textures" href="/patterns/textures">Textures</a>
     </nav>
 
     <h1>KnitHub</h1>
@@ -42,8 +42,6 @@
   <%= yield %>
   </main>
 
-<script src="../public/javascripts/application.js">
-
-</script>
+<script src="/javascripts/application.js"></script>
 </body>
 </html>
