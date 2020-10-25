@@ -249,10 +249,14 @@ h1 {
     border: 5px solid #dcc9b6;
     margin: 10px;
 }
+.all-users-project-gallery {
+    margin: 0 auto;
+}
 .projects-links {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-between;
+    min-width: 700px;
 }
 .save-button {
     background-image: url("/icons/bookmark (3).png");
