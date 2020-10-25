@@ -110,7 +110,7 @@ end
 delete '/user/projects/:project_id' do
   delete_project(params[:project_id])
   # redirect '/user/projects'
-  redirect :back
+  redirect '/user/projects'
 end
 
 get '/user/:action' do 
