@@ -32,6 +32,12 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 80%;
 }
+p {
+    font-size: 18px;
+    font-weight: lighter;
+    color: #DCC9B6;
+    font-family: 'Montserrat', sans-serif;
+}
 .categories-nav a{
     font-size: 18px;
     text-decoration: none;
