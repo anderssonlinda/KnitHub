@@ -1,10 +1,10 @@
-<a class="back-link"  href="javascript:history.back()">Go Back</a>
+<a class="back-link"  href="javascript:history.back()"><< Back</a>
 <section class="upload-project" >
-    <img class="img-preview" src="" alt="">
     <form class="project-form" action="/patterns/<%= pattern['id'] %>/upload-project" method="post">
+        <img class="img-preview new-project-image" src="" alt="">
     
-        <input class="img-input" type="text" name="image_url" placeholder="Image URL" onchange="preview()">
-        <%# <input type="text" name="image_url" required> %>
+        <input class="img-input" type="text" name="image_url" placeholder="Image URL" onchange="preview(), addBorder()" required>
+
         <button>Upload</button>
     </form>
 </section>

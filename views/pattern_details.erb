@@ -1,4 +1,7 @@
+<div class="projects-links">
 <a class="back-link" href="javascript:history.back()"><< Back</a>
+<a class="projects-link" href="/patterns/projects/<%= pattern['id'] %>">View Projects >></a>
+</div>
 <section class="pattern-details">
     <img id="display-image" src="<%= pattern['display_image_url']%>" alt="" data-id="<%= pattern['id']%>">
     <img src="<%= pattern['chart_url']%>" alt="">
@@ -10,17 +13,15 @@
         
         <form action="/pattern/save/<%= pattern['id']%>" method="post">
             <input type="hidden" name="_method" value="patch">
-            <button id="save">Save</button>
+            <button class="save-button"></button>
         </form>
 
         <% else %>
             <form action="/pattern/unsave/<%= pattern['id']%>" method="post">
                 <input type="hidden" name="_method" value="patch">
-                <button id="save">Unsave</button>
+                <button class="unsave-button"></button>
             </form>
         <% end %>
-        
-        <a class="projects-link" href="/patterns/projects/<%= pattern['id'] %>">View Projects >></a>
     <% end %>
     </div>
 </section>

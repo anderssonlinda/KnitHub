@@ -1,14 +1,17 @@
-<a class="back-link"  href="javascript:history.back()">Go Back</a>
-<section class="project-gallery">
+<a class="back-link"  href="javascript:history.back()"><< Back</a>
+<section class="my-projects-gallery">
         <% projects.each do |project|%>
-        <div class="project-image">
-            <img src="<%= project["image_url"]%>" alt="">
-            <a href="/user/projects/<%= project["id"]%>/edit">Edit</a>
-            <form action="/user/projects/<%= project["id"]%>" method="post">
-                <input type="hidden" name="_method" value="delete">
-                <button>Delete</button>
-            </form>
+        <div class="project-object">
+            <div class="project-wrapper">
+                <img class="project-image" src="<%= project["image_url"]%>" alt="">
+                <div class="edit-delete-icons">
+                    <a href="/user/projects/<%= project["id"]%>/edit"><img class="edit-icon" src="/icons/edit.png" alt=""></a>
+                    <form action="/user/projects/<%= project["id"]%>" method="post">
+                        <input type="hidden" name="_method" value="delete">
+                        <button class="delete-button"></button>
+                    </form>
+                </div>
+            </div>
         </div>
         <% end %>
-        
 </section>

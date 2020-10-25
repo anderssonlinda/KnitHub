@@ -1,8 +1,9 @@
 <form action="/user/project/<%= project['id']%>" method = "post">
-    <input type="hidden" name="_method" value="patch">
-  <label for="">Select image:</label>
-  <input class="img-input" type="text" name="image_url" onchange="preview()">
+  <input type="hidden" name="_method" value="patch">
+  <div class="edit-project-form">
+  <img class="img-preview" src="<%= project['image_url'] %>" alt="">
+  <input class="img-input" type="text" name="image_url" placeholder="Image URL"onchange="preview()">
   <button>Update</button>
+  </div>
 </form>
-<img class="img-preview" src="<%= project['image_url'] %>" alt="">
 

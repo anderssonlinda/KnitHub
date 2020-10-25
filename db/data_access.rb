@@ -9,6 +9,24 @@ def create_user username, email, password_digest
     run_sql("INSERT INTO users (username, email, password_digest) VALUES( $1, $2, $3);", [username, email, password_digest])
 end
 
+def unique_user? username
+    user = run_sql("SELECT username FROM users WHERE username = $1", [username])
+    if user.to_a == []
+        true 
+    else 
+        false
+    end
+end
+
+def all_usernames 
+    results = run_sql("SELECT username FROM users;")
+    usernames = []
+    results.each do |user|
+        usernames << user["username"]
+    end 
+    usernames
+end
+
 def find_user_by_id id 
     results = run_sql("SELECT * FROM users WHERE id = $1;", [id])
     results
@@ -57,8 +75,8 @@ def find_project_by_id id
     results[0]
 end
 
-def upload_project pattern_id, user_id, image_url, ravelry_url
-    run_sql("INSERT INTO projects (pattern_id, user_id, image_url, ravelry_url) VALUES($1, $2, $3, $4);", [pattern_id, user_id, image_url, ravelry_url])
+def upload_project pattern_id, user_id, image_url
+    run_sql("INSERT INTO projects (pattern_id, user_id, image_url) VALUES($1, $2, $3);", [pattern_id, user_id, image_url])
 end
 
 def update_project image_url, project_id

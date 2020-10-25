@@ -39,7 +39,7 @@ get '/patterns/:category' do
 end
 
 patch '/pattern/save/:pattern_id' do 
-  redirect '/login' unless logged_in?
+  redirect 'user/signin' unless logged_in?
 
   patterns = get_saved_patterns(current_user['id'])
   if patterns == nil
@@ -53,7 +53,7 @@ patch '/pattern/save/:pattern_id' do
 end 
 
 patch '/pattern/unsave/:pattern_id' do 
-  redirect '/login' unless logged_in?
+  redirect 'user/signin' unless logged_in?
 
   patterns = get_saved_patterns(current_user['id'])
   patterns = patterns.split(',')
@@ -64,6 +64,7 @@ patch '/pattern/unsave/:pattern_id' do
   redirect "/patterns/details/#{params[:pattern_id]}"
 
 end
+
 get '/patterns/projects/:pattern_id' do
   pattern = find_pattern_by_id(params[:pattern_id])
   projects = find_project_by_pattern_id(params[:pattern_id])
@@ -71,19 +72,18 @@ get '/patterns/projects/:pattern_id' do
 end
 
 get '/patterns/:pattern_id/upload-project' do
+  redirect 'user/signin' unless logged_in?
   pattern = find_pattern_by_id(params[:pattern_id])
   erb :upload_project, locals: {pattern: pattern}
 end
 
 post '/patterns/:pattern_id/upload-project' do
-  
-  upload_project(params[:pattern_id], current_user['id'], params['image_url'], params['ravelry_url'])
+  upload_project(params[:pattern_id], current_user['id'], params['image_url'])
   redirect "/patterns/projects/#{params[:pattern_id]}"
 end
 
-
 get '/user/saved_patterns' do
-  redirect '/login' unless logged_in?
+  redirect 'user/signin' unless logged_in?
 
   patterns = get_saved_patterns(current_user['id'])
   
@@ -96,6 +96,7 @@ get '/user/projects' do
 end
 
 get '/user/projects/:project_id/edit' do
+  redirect 'user/signin' unless logged_in?
   project = find_project_by_id(params[:project_id])
   erb :edit_project, locals: {project: project}
 end
@@ -114,19 +115,24 @@ end
 
 get '/user/:action' do 
   if params[:action] == 'signup'
-    erb :signup
+    
+    erb :signup,locals: {usernames: all_usernames}
   elsif params[:action] == 'signin'
     erb :signin
   end
 end
 
 post '/user/signup' do
-  password_digest = BCrypt::Password.create(params['password'])
-  create_user(params['username'], params['email'], password_digest)
+  if unique_user? params['username']
+    password_digest = BCrypt::Password.create(params['password'])
+    create_user(params['username'], params['email'], password_digest)
 
-  user = find_user_by_email(params['email'])
-  session[:user_id] = user["id"]
-  redirect '/'
+    user = find_user_by_email(params['email'])
+    session[:user_id] = user["id"]
+    redirect '/'
+  else 
+    redirect '/user/signup'
+  end
 end
 
 post '/user/signin' do 

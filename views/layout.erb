@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>KnitHub</title>
-  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link rel="stylesheet" href="/stylesheets/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap" rel="stylesheet">
@@ -21,8 +21,8 @@
     
     <% if logged_in? %>
     <nav class="signed-in-nav">
-      <a href="/user/saved_patterns">Saved Patterns</a>
-      <a href="/user/projects">My projects</a>
+      <a class="saved-patterns" href="/user/saved_patterns">Saved Patterns</a>
+      <a class="my-projects" href="/user/projects">My projects</a>
       <form action="/logout" method="post">
           <input type="hidden" name="_method" value="delete">
           <button>Log out</button>

@@ -1,8 +1,21 @@
-<section class="sign-in-form">
+<section class="sign-up-form">
     <form action="/user/signup" method="post">
-        <input type="text" name="username" placeholder="Username">
+        <p class="error-message"></p>
+        <input class="username-input" type="text" name="username" placeholder="Username" onchange="avaliableUsername()">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
         <button>Sign up</button>
     </form>
 </section>
+<script>
+function avaliableUsername() {
+    usernameInput = document.querySelector(".username-input").value;
+    errorMessage = document.querySelector(".error-message");
+    usernames = <%= usernames%>;
+    if (usernames.includes(usernameInput)) {
+        errorMessage.innerText = "Username already taken";
+    } else {
+        errorMessage.innerText = "";
+    };
+}
+</script>
