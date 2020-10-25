@@ -1,4 +1,4 @@
-![KnitHub start page](https://imgur.com/0LwELAc)
+![KnitHub start page](https://i.imgur.com/0LwELAc.png)
 
 # KnitHub
 A web app to browse knitting patterns, save patterns and upload your own projects where you’ve applied the pattern. 
