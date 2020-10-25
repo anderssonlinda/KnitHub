@@ -3,9 +3,10 @@
     <a class="upload-link" href="/patterns/<%= pattern["id"] %>/upload-project">Upload Project</a>
 </div>
 <section class="all-users-project-gallery">
-    <% if projects = ""  %>
+
+    <% if projects.to_a == []  %>
         <p>Be the first to upload a project for this pattern</p>
-    <% else %>
+    <% elsif projects %>
     <div>
         <% projects.each do |project|%>
             <img src="<%= project["image_url"]%>" alt="">
